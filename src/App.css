@@ -1,4 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
   box-sizing: border-box;
@@ -27,6 +28,7 @@ button {
   cursor: pointer;
   color: #08c;
 }
+
 button:hover {
   color: #04c;
 }
@@ -51,6 +53,10 @@ button:hover {
   background: white;
 }
 
+.Sidebar button:hover {
+  background: rgb(226, 226, 226);
+}
+
 .Sidebar-header {
   background: rgb(51, 62, 85);
   color: white;
@@ -58,6 +64,7 @@ button:hover {
   justify-content: space-between;
   padding: 25px;
 }
+
 .Sidebar-header h1 {
   margin: 0;
 }
@@ -66,21 +73,31 @@ button:hover {
   height: calc(100vh - 78px);
   overflow-y: scroll;
 }
+
 .Sidebar-note {
   padding: 25px;
   cursor: pointer;
 }
+
 .Sidebar-note-title {
   display: flex;
   justify-content: space-between;
 }
+
 .Sidebar-note button {
   color: crimson;
 }
+
+.Sidebar-note button:hover {
+  color: rgb(119, 11, 33);
+}
+
 .Sidebar-note p {
   margin: 10px 0;
 }
+
 .Sidebar-note small {
+  background: transparent;
   display: block;
   color: #999;
 }
@@ -88,9 +105,18 @@ button:hover {
 .Sidebar-note:hover {
   background: #ddd;
 }
-.Sidebar-note.active,
+
+.Sidebar-note.active {
+  background: rgb(91, 103, 209);
+  color: white;
+}
+
 .Sidebar-note.active small {
-  background: #08c;
+  color: white;
+}
+
+.Sidebar-note.active:hover {
+  background: rgb(73, 83, 168);
   color: white;
 }
 
@@ -100,6 +126,7 @@ button:hover {
   width: 70%;
   height: 100vh;
 }
+
 .Body-note-edit,
 .Body-note-preview {
   height: 50vh;
@@ -132,6 +159,7 @@ textarea {
   font-size: inherit;
   font-family: inherit;
 }
+
 .Body-note-edit input {
   height: 50px;
   font-size: 2rem;
@@ -153,4 +181,107 @@ textarea {
   padding: 0 25px 25px 25px;
   font-size: 1rem;
   line-height: 2rem;
+}
+
+/* Unlogged in */
+
+.App-unlogged {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+
+  input[type="text"],
+  input[type="password"],
+  button,
+  textarea {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+  }
+
+  label,
+  button {
+    margin-top: 1rem;
+  }
+
+  .registration-form {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .registration-field {
+    min-width: 0;
+  }
+
+  .registration-field label {
+    display: block;
+  }
+
+  .registration-field input {
+    width: 100%;
+  }
+
+  button {
+    padding: 0.5rem;
+  }
+
+  .instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+  }
+
+  .instructions>svg {
+    margin-right: 0.25rem;
+  }
+
+  .offscreen {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+  }
+
+  .invalid {
+    color: red;
+    margin-left: 0.25rem;
+  }
+
+  .errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .line {
+    display: inline-block;
+  }
+
+  @media (max-width: 600px) {
+    .registration-form {
+      grid-template-columns: 1fr;
+    }
+  }
 }

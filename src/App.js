@@ -3,6 +3,7 @@ import uuid from 'react-uuid';
 import Sidebar from './Sidebar';
 import Body from './Body';
 import { useState } from 'react';
+import Register from './Register';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
 
   const onUpdateNote = (updatedNote) => {
     const updatedNotesArray = notes.map((note) => {
-      if(note.id === activeNote) {
+      if (note.id === activeNote) {
         return updatedNote;
       }
 
@@ -39,22 +40,41 @@ function App() {
   };
 
   const getActiveNote = () => {
-   return notes.find((note) => note.id === activeNote); 
+    return notes.find((note) => note.id === activeNote);
+  }
+
+  let user = 'Guest';
+  let content;
+
+  if (user === 'Guest') {
+    content = (
+      <div className="App-unlogged">
+        <Register />
+      </div>
+    )
+  }
+
+  else {
+    content = (
+      <div className="App">
+        <Sidebar
+          notes={notes}
+          onAddNote={onAddNote}
+          onDeleteNote={onDeleteNote}
+          activeNote={activeNote}
+          setActiveNote={setActiveNote}
+        />
+        <Body
+          activeNote={getActiveNote()}
+          onUpdateNote={onUpdateNote}
+        />
+      </div>
+    )
   }
 
   return (
-    <div className="App">
-      <Sidebar
-        notes={notes}
-        onAddNote={onAddNote}
-        onDeleteNote={onDeleteNote}
-        activeNote={activeNote}
-        setActiveNote={setActiveNote}
-      />
-      <Body
-        activeNote={getActiveNote()}
-        onUpdateNote={onUpdateNote}
-      />
+    <div className="Page">
+      {content}
     </div>
   )
 }

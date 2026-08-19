@@ -1,4 +1,5 @@
 function Sidebar({ notes = [], onAddNote, onDeleteNote, activeNote, setActiveNote }) {
+    const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified)
 
     return (
         <div className="Sidebar">
@@ -7,7 +8,7 @@ function Sidebar({ notes = [], onAddNote, onDeleteNote, activeNote, setActiveNot
                 <button onClick={onAddNote}>ADD</button>
             </div>
             <div className="Sidebar-notes">
-                {notes.map((note) => (
+                {sortedNotes.map((note) => (
                     <div
                         className={`Sidebar-note ${note.id === activeNote && "active"}`} key={note.id}
                         onClick={() => setActiveNote(note.id)}
