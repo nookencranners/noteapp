@@ -1,3 +1,5 @@
+import ReactMarkdown from 'react-markdown';
+
 function Body({ activeNote, onUpdateNote }) {
     const onEditField = (key, value) => {
         onUpdateNote({
@@ -7,7 +9,7 @@ function Body({ activeNote, onUpdateNote }) {
         })
     };
 
-    if(!activeNote) return <div className="No-active-note">No note selected.</div>
+    if (!activeNote) return <div className="No-active-note">No note selected.</div>
 
     return (
         <div className="Body">
@@ -28,7 +30,11 @@ function Body({ activeNote, onUpdateNote }) {
             </div>
             <div className="Body-note-preview">
                 <h1 className="Preview-title">{activeNote.title}</h1>
-                <div className="Markdown-preview">{activeNote.body}</div>
+                <div className="Markdown-preview">
+                    <ReactMarkdown>
+                        {activeNote.body}
+                    </ReactMarkdown>
+                </div>
             </div>
         </div>
     )
