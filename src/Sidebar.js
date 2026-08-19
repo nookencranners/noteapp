@@ -1,4 +1,4 @@
-function Sidebar({ notes = [], onAddNote }) {
+function Sidebar({ notes = [], onAddNote, onDeleteNote }) {
 
     return (
         <div className="Sidebar">
