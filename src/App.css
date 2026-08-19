@@ -196,6 +196,32 @@ textarea {
   font-size: calc(10px + 2vmin);
   color: white;
 
+  section {
+    width: 100%;
+    max-width: 520px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px 30px 50px 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+  }
+
+  a,
+  a:visited {
+    color: #fff;
+  }
+
+
   input[type="text"],
   input[type="password"],
   button,
