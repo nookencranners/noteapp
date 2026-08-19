@@ -1,38 +1,152 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+* {
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+
+body,
 .App {
-  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 16px;
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #08c;
+}
+button:hover {
+  color: #04c;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* SIDEBAR STYLES */
+
+.Sidebar {
+  width: 30%;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+}
+
+.Sidebar button {
+  font-synthesis: weight;
+  padding: 4px 12px;
+  border: 2px solid rgb(99, 106, 121);
+  border-radius: 14px;
+}
+
+.Sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+.Sidebar-header h1 {
+  margin: 0;
+}
+
+.Sidebar-notes {
+  height: calc(100vh - 78px);
+  overflow-y: scroll;
+}
+.Sidebar-note {
+  padding: 25px;
+  cursor: pointer;
+}
+.Sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+}
+.Sidebar-note button {
+  color: crimson;
+}
+.Sidebar-note p {
+  margin: 10px 0;
+}
+.Sidebar-note small {
+  display: block;
+  color: #999;
+}
+
+.Sidebar-note:hover {
+  background: #ddd;
+}
+.Sidebar-note.active,
+.Sidebar-note.active small {
+  background: #08c;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
+
+.Body {
+  width: 70%;
+  height: 100vh;
+}
+.Body-note-edit,
+.Body-note-preview {
+  height: 50vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.no-active-note {
+  width: 70%;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 2rem;
+  color: #999;
+}
+
+/* Editing */
+.Body-note-edit {
+  padding: 25px;
+}
+
+.Body-note-edit input,
+textarea {
+  display: block;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  width: 100%;
+  height: calc(50vh - 130px);
+  padding: 10px;
+  resize: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+.Body-note-edit input {
+  height: 50px;
+  font-size: 2rem;
+}
+
+/* Preview */
+.Body-note-preview {
+  border-top: 1px solid #ddd;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.Preview-title {
+  padding: 25px 25px 25px 25px;
+  margin: 0;
+}
+
+.Markdown-preview {
+  padding: 0 25px 25px 25px;
+  font-size: 1rem;
+  line-height: 2rem;
 }
