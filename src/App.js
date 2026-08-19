@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [activeNote, setActiveNote] = useState(false);
 
   const onAddNote = () => {
     const newNote = {
@@ -20,10 +21,26 @@ function App() {
     setNotes([newNote, ...notes]);
   };
 
+  const onUpdateNote = (updatedNote) => {
+    const updatedNotesArray = notes.map((note) => {
+      if(note.id === activeNote) {
+        return updatedNote;
+      }
+
+      return note;
+    });
+
+    setNotes(updatedNotesArray);
+  }
+
   const onDeleteNote = (idToDelete) => {
     setNotes(notes.filter((note) => note.id !== idToDelete));
     console.log('deleted the note with id ' + idToDelete)
   };
+
+  const getActiveNote = () => {
+   return notes.find((note) => note.id === activeNote); 
+  }
 
   return (
     <div className="App">
@@ -31,8 +48,13 @@ function App() {
         notes={notes}
         onAddNote={onAddNote}
         onDeleteNote={onDeleteNote}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
       />
-      <Body />
+      <Body
+        activeNote={getActiveNote()}
+        onUpdateNote={onUpdateNote}
+      />
     </div>
   )
 }

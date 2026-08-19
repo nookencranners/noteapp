@@ -48,9 +48,12 @@ button:hover {
   padding: 4px 12px;
   border: 2px solid rgb(99, 106, 121);
   border-radius: 14px;
+  background: white;
 }
 
 .Sidebar-header {
+  background: rgb(51, 62, 85);
+  color: white;
   display: flex;
   justify-content: space-between;
   padding: 25px;
@@ -102,11 +105,12 @@ button:hover {
   height: 50vh;
 }
 
-.no-active-note {
+.No-active-note {
   width: 70%;
   height: 100vh;
   line-height: 100vh;
   text-align: center;
+  justify-content: center;
   font-size: 2rem;
   color: #999;
 }
