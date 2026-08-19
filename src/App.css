@@ -219,7 +219,7 @@ textarea {
   }
 
   .registration-field {
-    min-width: 0;
+    min-width: 400px;
   }
 
   .registration-field label {

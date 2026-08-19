@@ -79,10 +79,11 @@ const Register = () => {
                     />
                     <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
                         <FontAwesomeIcon icon={faInfoCircle} />
-                        Username must be: <br />
+                        Username must include: <br />
                         {">"} 4 to 24 characters. <br />
-                        {">"} beginning with a letter. <br />
-                        {">"} only letters, numbers, underscores and hyphens.
+                        {">"} a letter at the beginning. <br />
+                        {">"} only letters, numbers, <br />
+                        {" "} underscores and hyphens.
                     </p>
                 </div>
 
@@ -108,9 +109,10 @@ const Register = () => {
                     />
                     <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                         <FontAwesomeIcon icon={faInfoCircle} />
-                        Password must be: <br />
+                        Password must include: <br />
                         {">"} 8 to 24 characters. <br />
-                        {">"} inclusive of uppercase and lowercase letters, a number and a special character. <br />
+                        {">"} uppercase and lowercase letters. <br/>
+                        {">"} a number and a special character. <br />
                         {">"} Allowed special characters:
                         <span aria-label="exclamation mark">!</span>
                         <span aria-label="at symbol">@</span>
