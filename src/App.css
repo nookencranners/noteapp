@@ -213,7 +213,6 @@ textarea {
     flex-direction: column;
     justify-content: space-evenly;
     flex-grow: 1;
-    padding-bottom: 1rem;
   }
 
   a,
@@ -221,10 +220,12 @@ textarea {
     color: #fff;
   }
 
+  a:hover {
+    color: rgb(167, 167, 167)
+  }
 
   input[type="text"],
   input[type="password"],
-  button,
   textarea {
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
@@ -232,8 +233,7 @@ textarea {
     border-radius: 0.5rem;
   }
 
-  label,
-  button {
+  label {
     margin-top: 1rem;
   }
 
@@ -256,12 +256,40 @@ textarea {
     width: 100%;
   }
 
+  .registration-confirmation {
+    padding: 2rem 0 0 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .to-signin {
+    padding: 1rem 0 0 0;
+    font-size: 1rem;
+  }
+
   button {
-    padding: 0.5rem;
+    background: white;
+    padding: 1rem 1rem 1rem 1rem;
+    text-align: center;
+    justify-content: center;
+    min-width: 400px;
+    border: 2px solid rgb(185, 173, 235);
+    border-radius: 10px;
+  }
+
+  button:hover {
+    background: rgb(145, 146, 153);
+    border: 2px solid rgb(84, 79, 107);
+  }
+
+  button:disabled {
+    background: rgb(64, 65, 68);
+    border: 2px solid rgb(40, 38, 51);
+    color: rgb(0, 32, 48);
   }
 
   .instructions {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     border-radius: 0.5rem;
     background: #000;
     color: #fff;
